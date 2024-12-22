@@ -1,0 +1,1766 @@
+[
+  {
+    "bus_id": "104",
+    "registration": "RI 397-HI",
+    "model": "MB Sprinter 312",
+    "type": "Minibus",
+    "photo": false,
+    "author": ""
+  },
+  {
+    "bus_id": "106",
+    "registration": "RI 718-JU",
+    "model": "Renault Master II",
+    "type": "Minibus",
+    "photo": false,
+    "author": ""
+  },
+  {
+    "bus_id": "107",
+    "registration": "RI 389-LM",
+    "model": "Renault Master II",
+    "type": "Minibus",
+    "photo": false,
+    "author": ""
+  },
+  {
+    "bus_id": "108",
+    "registration": "RI 398-MZ",
+    "model": "Iveco Cacciamali Urbi 65C17",
+    "type": "Minibus",
+    "photo": true,
+    "author": "kico101"
+  },
+  {
+    "bus_id": "111",
+    "registration": "RI 397-MZ",
+    "model": "Iveco Cacciamali Urbi 65C17",
+    "type": "Minibus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "113",
+    "registration": "RI 776-RB",
+    "model": "Iveco Cacciamali Urbi 65C18",
+    "type": "Minibus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "114",
+    "registration": "RI 775-RB",
+    "model": "Iveco Cacciamali Urbi 65C18",
+    "type": "Minibus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "115",
+    "registration": "RI 585-UB",
+    "model": "Iveco Daily 50C15V",
+    "type": "Minibus",
+    "photo": false,
+    "author": ""
+  },
+  {
+    "bus_id": "116",
+    "registration": "RI 261-UO",
+    "model": "Iveco Daily 50C17",
+    "type": "Minibus",
+    "photo": false,
+    "author": ""
+  },
+  {
+    "bus_id": "117",
+    "registration": "RI 1114-K",
+    "model": "Renault Master  ",
+    "type": "Minibus",
+    "photo": false,
+    "author": ""
+  },
+  {
+    "bus_id": "118",
+    "registration": "RI 4318-K",
+    "model": "Otokar Navigo C",
+    "type": "Minibus",
+    "photo": true,
+    "author": "Putn1k"
+  },
+  {
+    "bus_id": "119",
+    "registration": "RI 4319-K",
+    "model": "Otokar Navigo C",
+    "type": "Minibus",
+    "photo": true,
+    "author": "NP-549"
+  },
+  {
+    "bus_id": "120",
+    "registration": "RI 4320-K",
+    "model": "Otokar Navigo C",
+    "type": "Minibus",
+    "photo": true,
+    "author": "Korisnik linije 34"
+  },
+  {
+    "bus_id": "121",
+    "registration": "RI 4321-K",
+    "model": "Otokar Navigo C",
+    "type": "Minibus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "122",
+    "registration": "RI 4322-K",
+    "model": "Otokar Navigo C",
+    "type": "Minibus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "123",
+    "registration": "RI 4323-K",
+    "model": "Otokar Navigo C",
+    "type": "Minibus",
+    "photo": true,
+    "author": "Zmajhir"
+  },
+  {
+    "bus_id": "124",
+    "registration": "RI 4324-K",
+    "model": "Otokar Navigo C",
+    "type": "Minibus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "125",
+    "registration": "RI 4325-K",
+    "model": "Otokar Navigo C",
+    "type": "Minibus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "126",
+    "registration": "RI 4326-K",
+    "model": "Otokar Navigo C",
+    "type": "Minibus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "127",
+    "registration": "RI 4327-K",
+    "model": "Otokar Navigo C",
+    "type": "Minibus",
+    "photo": false,
+    "author": ""
+  },
+  {
+    "bus_id": "201",
+    "registration": "RI 560-UB",
+    "model": "Iveco Kapena Urby CNG",
+    "type": "Minibus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "202",
+    "registration": "RI 581-UB",
+    "model": "Iveco Kapena Urby CNG",
+    "type": "Minibus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "203",
+    "registration": "RI 403-UD",
+    "model": "Iveco Kapena Urby CNG",
+    "type": "Minibus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "204",
+    "registration": "RI 572-UB",
+    "model": "Iveco Kapena Urby CNG",
+    "type": "Minibus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "205",
+    "registration": "RI 573-UB",
+    "model": "Iveco Kapena Urby CNG",
+    "type": "Minibus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "206",
+    "registration": "RI 576-UB",
+    "model": "Iveco Kapena Urby CNG",
+    "type": "Minibus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "207",
+    "registration": "RI 577-UB",
+    "model": "Iveco Kapena Urby CNG",
+    "type": "Minibus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "208",
+    "registration": "RI 579-UB",
+    "model": "Iveco Kapena Urby CNG",
+    "type": "Minibus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "209",
+    "registration": "RI 574-UB",
+    "model": "Iveco Kapena Urby CNG",
+    "type": "Minibus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "210",
+    "registration": "RI 410-UH",
+    "model": "Iveco Kapena Urby CNG",
+    "type": "Minibus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "583",
+    "registration": "RI 583-UM",
+    "model": "MAN SG 240 Avtomontaža",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "589",
+    "registration": "RI 967-DN",
+    "model": "MAN SU 240 Avtomontaža",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "594",
+    "registration": "RI 3492-I",
+    "model": "MAN SG 240 Avtomontaža",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "595",
+    "registration": "RI 837-EL",
+    "model": "MAN SG 240 Avtomontaža",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "597",
+    "registration": "RI 1118-K",
+    "model": "MAN SG 240 Avtomontaža",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "598",
+    "registration": "RI 166-FK",
+    "model": "MAN SU 240 Avtomontaža",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "599",
+    "registration": "RI 1168-K",
+    "model": "MAN SU 240 Avtomontaža",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "600",
+    "registration": "RI 986-ZH",
+    "model": "MAN SU 240 Avtomontaža",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "601",
+    "registration": "RI 958-ZH",
+    "model": "MAN SU 240 Avtomontaža",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "kico101"
+  },
+  {
+    "bus_id": "602",
+    "registration": "RI 137-UL",
+    "model": "MAN SU 240 Avtomontaža",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "603",
+    "registration": "RI 341-ZM",
+    "model": "MAN SU 240 Avtomontaža",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "651",
+    "registration": "RI 721-JH",
+    "model": "MAN SG 312 MANAS",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "652",
+    "registration": "RI 850-MB",
+    "model": "MB O345 Conecto",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "653",
+    "registration": "RI 851-MB",
+    "model": "MB O345 Conecto",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "654",
+    "registration": "RI 878-MB",
+    "model": "MB O345 Conecto",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "655",
+    "registration": "RI 852-MB",
+    "model": "MB O345 Conecto",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "656",
+    "registration": "RI 113-TV",
+    "model": "MB O345 Conecto",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "kico101"
+  },
+  {
+    "bus_id": "657",
+    "registration": "RI 856-MB",
+    "model": "MB O345 Conecto",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "autobusi.org"
+  },
+  {
+    "bus_id": "658",
+    "registration": "RI 877-MB",
+    "model": "MB O345 Conecto",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "659",
+    "registration": "RI 855-MB",
+    "model": "MB O345 Conecto",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "660",
+    "registration": "RI 3603-J",
+    "model": "MB O345 Conecto",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "661",
+    "registration": "RI 571-SE",
+    "model": "MB O345 Conecto",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "662",
+    "registration": "RI 945-OR",
+    "model": "MB O345 Conecto",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "autobusi.org"
+  },
+  {
+    "bus_id": "663",
+    "registration": "RI 456-MA",
+    "model": "MB O345 Conecto",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "664",
+    "registration": "RI 859-MB",
+    "model": "MB O345 Conecto",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "665",
+    "registration": "RI 858-MB",
+    "model": "MB O345 Conecto",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "666",
+    "registration": "RI 864-MB",
+    "model": "MB O345 Conecto",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "667",
+    "registration": "RI 413-UI",
+    "model": "MB O345 G Conecto",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "668",
+    "registration": "RI 2948-E",
+    "model": "MB O345 G Conecto",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "669",
+    "registration": "RI 1169-K",
+    "model": "MB O345 G Conecto",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "670",
+    "registration": "RI 437-ZU",
+    "model": "MB O345 G Conecto",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "671",
+    "registration": "RI 713-ZI",
+    "model": "MB O345 G Conecto",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "672",
+    "registration": "RI 874-MB",
+    "model": "MB O345 G Conecto",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "674",
+    "registration": "RI 865-MB",
+    "model": "MAN Lion's Classic (SL283)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "675",
+    "registration": "RI 866-MB",
+    "model": "MAN Lion's Classic (SL283)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "676",
+    "registration": "RI 234-OU",
+    "model": "MAN Lion's Classic (SL283)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "677",
+    "registration": "RI 868-MB",
+    "model": "MAN Lion's Classic (SL283)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "679",
+    "registration": "RI 871-MB",
+    "model": "MAN Lion's Classic (SL283)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "680",
+    "registration": "RI 653-OM",
+    "model": "MAN NL 313 FDD",
+    "type": "Katni autobus",
+    "photo": false,
+    "author": ""
+  },
+  {
+    "bus_id": "681",
+    "registration": "RI 682-OM",
+    "model": "MAN Lion's Regio (ÜL 364)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "682",
+    "registration": "RI 681-OL",
+    "model": "MAN Lion's Regio (ÜL 364)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "683",
+    "registration": "RI 854-ZV",
+    "model": "MAN Lion's Regio (ÜL 364)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "684",
+    "registration": "RI 693-OM",
+    "model": "MAN Lion's Regio (ÜL 364)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "mivano"
+  },
+  {
+    "bus_id": "685",
+    "registration": "RI 691-OM",
+    "model": "MAN Lion's Regio (ÜL 364)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "686",
+    "registration": "RI 219-OS",
+    "model": "MAN Lion's Classic (SL283)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "687",
+    "registration": "RI 114-ZI",
+    "model": "MAN Lion's Classic (SL283)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Putn1k"
+  },
+  {
+    "bus_id": "689",
+    "registration": "RI 691-OS",
+    "model": "MAN Lion's Classic (SL283)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "690",
+    "registration": "RI 692-OS",
+    "model": "MAN Lion's Classic (SL283)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "691",
+    "registration": "RI 562-SL",
+    "model": "MAN Lion's Classic (SL283)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "692",
+    "registration": "RI 8713-G",
+    "model": "MAN Lion's Classic (SL283)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "693",
+    "registration": "RI 695-OS",
+    "model": "MAN Lion's Classic (SL283)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "695",
+    "registration": "RI 694-OS",
+    "model": "MAN Lion's Classic (SL283)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "696",
+    "registration": "RI 967-OR",
+    "model": "MAN Lion's Classic (SL283)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "697",
+    "registration": "RI 513-UN",
+    "model": "MAN Lion's Classic (SL283)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "698",
+    "registration": "RI 696-OS",
+    "model": "MAN Lion's Classic (SL283)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "699",
+    "registration": "RI 927-OR",
+    "model": "MAN Lion's Classic (SL283)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "700",
+    "registration": "RI 953-OR",
+    "model": "MAN Lion's Classic (SL283)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "701",
+    "registration": "RI 230-OU",
+    "model": "MB Citaro I (O530 G)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "Krpan"
+  },
+  {
+    "bus_id": "702",
+    "registration": "RI 242-OU",
+    "model": "MB Citaro I (O530 G)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "autobusi.org"
+  },
+  {
+    "bus_id": "703",
+    "registration": "RI 233-OU",
+    "model": "MB Citaro I (O530 G)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "704",
+    "registration": "RI 231-OU",
+    "model": "MB Citaro I (O530 G)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "autobusi.org"
+  },
+  {
+    "bus_id": "705",
+    "registration": "RI 413-UP",
+    "model": "MB Citaro I (O530 G)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "autobusi.org"
+  },
+  {
+    "bus_id": "706",
+    "registration": "RI 236-OU",
+    "model": "MB Citaro I (O530 G)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "707",
+    "registration": "RI 237-OU",
+    "model": "MB Citaro I (O530 G)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "autobusi.org"
+  },
+  {
+    "bus_id": "708",
+    "registration": "RI 238-OU",
+    "model": "MB Citaro I (O530 G)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "autobusi.org"
+  },
+  {
+    "bus_id": "709",
+    "registration": "RI 601-UR",
+    "model": "MB Citaro I (O530 G)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "710",
+    "registration": "RI 3068-A",
+    "model": "MB Citaro I (O530 G)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "autobusi.org"
+  },
+  {
+    "bus_id": "711",
+    "registration": "RI 241-OU",
+    "model": "MB Citaro I (O530 G)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "autobusi.org"
+  },
+  {
+    "bus_id": "712",
+    "registration": "RI 783-TZ",
+    "model": "MB Citaro I (O530 G)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "713",
+    "registration": "RI 214-RF",
+    "model": "MAN Lion's Regio (ÜL 354)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Tomek"
+  },
+  {
+    "bus_id": "724",
+    "registration": "RI 440-UM",
+    "model": "Irisbus Arway SFR 160",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "725",
+    "registration": "RI 441-UM",
+    "model": "Irisbus Arway SFR 160",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "726",
+    "registration": "RI 442-UM",
+    "model": "Irisbus Arway SFR 160",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "727",
+    "registration": "RI 443-UM",
+    "model": "Irisbus Arway SFR 160",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "728",
+    "registration": "RI 328-VP",
+    "model": "Iveco Crossway",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "autobusi.org"
+  },
+  {
+    "bus_id": "729",
+    "registration": "RI 329-VP",
+    "model": "Iveco Crossway",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "autobusi.org"
+  },
+  {
+    "bus_id": "730",
+    "registration": "RI 2016-A",
+    "model": "MB Conecto G LF",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "731",
+    "registration": "RI 2017-A",
+    "model": "MB Conecto G LF",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "732",
+    "registration": "RI 2018-A",
+    "model": "MB Conecto G LF",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "lussinpicollo"
+  },
+  {
+    "bus_id": "733",
+    "registration": "RI 2019-A",
+    "model": "MB Conecto G LF",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "734",
+    "registration": "RI 2021-A",
+    "model": "MB Conecto G LF",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "735",
+    "registration": "RI 2022-A",
+    "model": "MB Conecto G LF",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "736",
+    "registration": "RI 6384-J",
+    "model": "MB Conecto G LF",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "737",
+    "registration": "RI 2459-F",
+    "model": "MB Conecto G LF",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "738",
+    "registration": "RI 2025-A",
+    "model": "MB Conecto G LF",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "739",
+    "registration": "RI 2026-A",
+    "model": "MB Conecto G LF",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "740",
+    "registration": "RI 2740-H",
+    "model": "MAN Lion's City (A21)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "741",
+    "registration": "RI 2741-H",
+    "model": "MAN Lion's City (A21)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Ivano31"
+  },
+  {
+    "bus_id": "742",
+    "registration": "RI 2742-H",
+    "model": "MAN Lion's City (A21)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "743",
+    "registration": "RI 2743-H",
+    "model": "MAN Lion's City (A21)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "744",
+    "registration": "RI 2744-H ",
+    "model": "MAN Lion's City (A21)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "745",
+    "registration": "RI 2745-H ",
+    "model": "MAN Lion's City (A21)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "746",
+    "registration": "RI 2746-H",
+    "model": "MAN Lion's City (A21)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "747",
+    "registration": "RI 2747-H",
+    "model": "MAN Lion's City (A21)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "748",
+    "registration": "RI 2748-H",
+    "model": "MAN Lion's City (A21)",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "749",
+    "registration": "RI 2749-H",
+    "model": "Iveco Crossway",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "750",
+    "registration": "RI 2750-H",
+    "model": "Iveco Crossway",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "751",
+    "registration": "RI 2751-H",
+    "model": "Iveco Crossway",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "752",
+    "registration": "RI 2752-H",
+    "model": "Iveco Crossway",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "753",
+    "registration": "RI 2753-H ",
+    "model": "Iveco Crossway",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "754",
+    "registration": "RI 2754-H ",
+    "model": "Iveco Crossway",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "755",
+    "registration": "RI 2755-H",
+    "model": "Iveco Crossway",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "756",
+    "registration": "RI 2756-H",
+    "model": "Iveco Crossway",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "757",
+    "registration": "RI 2757-H",
+    "model": "Iveco Crossway",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "758",
+    "registration": "RI 5711-H",
+    "model": "MAN Lion's City G (A23)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "759",
+    "registration": "RI 5712-H",
+    "model": "MAN Lion's City G (A23)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "760",
+    "registration": "RI 5713-H",
+    "model": "MAN Lion's City G (A23)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "761",
+    "registration": "RI 5714-H",
+    "model": "MAN Lion's City G (A23)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "762",
+    "registration": "RI 4462-K",
+    "model": "MAN Lion's City G (A23)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "763",
+    "registration": "RI 4463-K",
+    "model": "MAN Lion's City G (A23)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "764",
+    "registration": "RI 4464-K",
+    "model": "MAN Lion's City G (A23)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "765",
+    "registration": "RI 4465-K",
+    "model": "MAN Lion's City G (A23)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "766",
+    "registration": "RI 4476-K",
+    "model": "MAN Lion's City G (A23)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "767",
+    "registration": "RI 4467-K",
+    "model": "MAN Lion's City G (A23)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "768",
+    "registration": "RI 4468-K",
+    "model": "MAN Lion's City G (A23)",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "769",
+    "registration": "RI 4469-K",
+    "model": "Iveco Crossway",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "770",
+    "registration": "RI 4470-K",
+    "model": "Iveco Crossway",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "771",
+    "registration": "RI 4471-K",
+    "model": "Iveco Crossway",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "772",
+    "registration": "RI 4472-K",
+    "model": "Iveco Crossway",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "773",
+    "registration": "RI 4473-K",
+    "model": "Iveco Crossway",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "801",
+    "registration": "RI  561-UB",
+    "model": "Irisbus Citelis 12 CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "802",
+    "registration": "RI 562-UB",
+    "model": "Irisbus Citelis 12 CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "803",
+    "registration": "RI 521-ZE",
+    "model": "Irisbus Citelis 12 CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "804",
+    "registration": "RI 564-UB",
+    "model": "Irisbus Citelis 12 CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "805",
+    "registration": "RI 565-UB",
+    "model": "Irisbus Citelis 12 CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "808",
+    "registration": "RI 914-VE",
+    "model": "Irisbus Citelis 12 CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "809",
+    "registration": "RI 569-UB",
+    "model": "Irisbus Citelis 12 CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "810",
+    "registration": "RI 570-UB",
+    "model": "Irisbus Citelis 12 CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "811",
+    "registration": "RI 571-UB",
+    "model": "Irisbus Citelis 12 CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "812",
+    "registration": "RI 882-VU",
+    "model": "Iveco Urbanway 12 CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "813",
+    "registration": "RI 883-VU",
+    "model": "Iveco Urbanway 12 CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "814",
+    "registration": "RI 884-VU",
+    "model": "Iveco Urbanway 12 CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "815",
+    "registration": "RI 885-VU ",
+    "model": "Iveco Urbanway 12 CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "816",
+    "registration": "RI 886-VU",
+    "model": "Iveco Urbanway 12 CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "817",
+    "registration": "RI 1190-K",
+    "model": "Iveco Urbanway 18 CNG",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "818",
+    "registration": "RI 518-VZ",
+    "model": "Iveco Urbanway 18 CNG",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "819",
+    "registration": "RI 519-VZ",
+    "model": "Iveco Urbanway 18 CNG",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "820",
+    "registration": "RI 520-VZ",
+    "model": "Iveco Urbanway 18 CNG",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "821",
+    "registration": "RI 9101-A",
+    "model": "MAN Lion's City G CNG",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "822",
+    "registration": "RI 9102-A",
+    "model": "MAN Lion's City G CNG",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "lussinpicollo"
+  },
+  {
+    "bus_id": "823",
+    "registration": "RI 9103-A",
+    "model": "MAN Lion's City G CNG",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "824",
+    "registration": "RI 9104-A",
+    "model": "MAN Lion's City G CNG",
+    "type": "Zglobni autobus",
+    "photo": true,
+    "author": "Bari"
+  },
+  {
+    "bus_id": "825",
+    "registration": "RI 9105-A",
+    "model": "Iveco Urbanway 12 CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "826",
+    "registration": "RI 9106-A",
+    "model": "Iveco Urbanway 12 CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "827",
+    "registration": "RI 6495-F",
+    "model": "Iveco Urbanway 12 CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "828",
+    "registration": "RI 9108-A",
+    "model": "Iveco Urbanway 12 CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "829",
+    "registration": "RI 9109-A",
+    "model": "Iveco Urbanway 10.5 CNG",
+    "type": "Midibus",
+    "photo": true,
+    "author": "lussinpicollo"
+  },
+  {
+    "bus_id": "830",
+    "registration": "RI 9110-A",
+    "model": "Iveco Urbanway 10.5 CNG",
+    "type": "Midibus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "831",
+    "registration": "RI 8631-K",
+    "model": "Iveco Crossway LE CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "832",
+    "registration": "RI 8632-K",
+    "model": "Iveco Crossway LE CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "833",
+    "registration": "RI 8633-K",
+    "model": "Iveco Crossway LE CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "834",
+    "registration": "RI 8634-K",
+    "model": "Iveco Crossway LE CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "835",
+    "registration": "RI 8635-K",
+    "model": "Iveco Crossway LE CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  },
+  {
+    "bus_id": "836",
+    "registration": "RI 8636-K",
+    "model": "Iveco Crossway LE CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "837",
+    "registration": "RI 8637-K",
+    "model": "Iveco Crossway LE CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "838",
+    "registration": "RI 8638-K",
+    "model": "Iveco Crossway LE CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "839",
+    "registration": "RI 8639-K",
+    "model": "Iveco Crossway LE CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "840",
+    "registration": "RI 8640-K",
+    "model": "Iveco Crossway LE CNG",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "shef"
+  },
+  {
+    "bus_id": "128",
+    "registration": "RI 9328-N",
+    "model": "Feniksbus FBI 83 M",
+    "type": "Minibus",
+    "photo": true,
+    "author": "pehar_11" 
+  }, {
+    "bus_id": "129",
+    "registration": "RI 9329-N",
+    "model": "Feniksbus FBI 83 M",
+    "type": "Minibus",
+    "photo": true,
+    "author": "gorgoroth" 
+  }, {
+    "bus_id": "130",
+    "registration": "RI 9330-N",
+    "model": "Feniksbus FBI 83 M",
+    "type": "Minibus",
+    "photo": true,
+    "author": "NP-549" 
+  }, {
+    "bus_id": "131",
+    "registration": "RI 9331-N",
+    "model": "Feniksbus FBI 83 M",
+    "type": "Minibus",
+    "photo": false,
+    "author": "" 
+  }, {
+    "bus_id": "132",
+    "registration": "RI 9332-N",
+    "model": "Feniksbus FBI 83 M",
+    "type": "Minibus",
+    "photo": true,
+    "author": "pehar_11" 
+  }, {
+    "bus_id": "133",
+    "registration": "RI 9333-N",
+    "model": "Feniksbus FBI 83 M",
+    "type": "Minibus",
+    "photo": true,
+    "author": "gorgoroth" 
+  }, {
+    "bus_id": "134",
+    "registration": "RI 9334-N",
+    "model": "Feniksbus FBI 83 M",
+    "type": "Minibus",
+    "photo": true,
+    "author": "shef" 
+  }, {
+    "bus_id": "135",
+    "registration": "RI 9335-N",
+    "model": "Feniksbus FBI 83 M",
+    "type": "Minibus",
+    "photo": true,
+    "author": "pehar_11" 
+  }, {
+    "bus_id": "136",
+    "registration": "RI 9336-N",
+    "model": "Feniksbus FBI 83 M",
+    "type": "Minibus",
+    "photo": true,
+    "author": "pehar_11" 
+  }, {
+    "bus_id": "137",
+    "registration": "RI 9337-N",
+    "model": "Feniksbus FBI 83 M",
+    "type": "Minibus",
+    "photo": true,
+    "author": "gorgoroth"
+  }, {
+    "bus_id": "138",
+    "registration": "RI 9338-N",
+    "model": "Feniksbus FBI 83 M",
+    "type": "Minibus",
+    "photo": true,
+    "author": "rzri05" 
+  }, {
+    "bus_id": "774",
+    "registration": "RI 9344-N",
+    "model": "Iveco Crossway LE",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  }, {
+    "bus_id": "775",
+    "registration": "RI 9345-N",
+    "model": "Iveco Crossway LE",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  }, {
+    "bus_id": "776",
+    "registration": "RI 9346-N",
+    "model": "Iveco Crossway LE",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "pehar_11"
+  }, {
+    "bus_id": "777",
+    "registration": "RI 9347-N",
+    "model": "Iveco Crossway LE",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  }, {
+    "bus_id": "778",
+    "registration": "RI 9348-N",
+    "model": "Iveco Crossway LE",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  }, {
+    "bus_id": "779",
+    "registration": "RI 9349-N",
+    "model": "Iveco Crossway LE",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  }, {
+    "bus_id": "780",
+    "registration": "RI 9350-N",
+    "model": "Iveco Crossway LE",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  }, {
+    "bus_id": "781",
+    "registration": "RI 9351-N",
+    "model": "Iveco Crossway LE",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "pehar_11"
+  }, {
+    "bus_id": "782",
+    "registration": "RI 9352-N",
+    "model": "Iveco Crossway LE",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  }, {
+    "bus_id": "783",
+    "registration": "RI 9353-N",
+    "model": "Iveco Crossway LE",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "gorgoroth"
+  }, {
+    "bus_id": "784",
+    "registration": "RI 9354-N",
+    "model": "Iveco Crossway LE",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "pehar_11"
+  }, {
+    "bus_id": "785",
+    "registration": "RI 9355-N",
+    "model": "Iveco Crossway LE",
+    "type": "Solo autobus",
+    "photo": true,
+    "author": "rzri05"
+  }, {
+    "bus_id": "786",
+    "registration": "RI 1686-O",
+    "model": "MAN Lion's City 12C",
+    "type": "Solo autobus",
+    "photo": false,
+    "author": "MAN799"
+  }, {
+    "bus_id": "787",
+    "registration": "RI 1687-O",
+    "model": "MAN Lion's City 12C",
+    "type": "Solo autobus",
+    "photo": false,
+    "author": "MAN799"
+  }, {
+    "bus_id": "788",
+    "registration": "RI 1688-O",
+    "model": "MAN Lion's City 12C",
+    "type": "Solo autobus",
+    "photo": false,
+    "author": "MAN799"
+  }, {
+    "bus_id": "789",
+    "registration": "RI 1689-O",
+    "model": "MAN Lion's City 12C",
+    "type": "Solo autobus",
+    "photo": false,
+    "author": "rzri05"
+  }, {
+    "bus_id": "790",
+    "registration": "RI 1690-O",
+    "model": "MAN Lion's City 12C",
+    "type": "Solo autobus",
+    "photo": false,
+    "author": "Volim autobuse"
+  }, {
+    "bus_id": "791",
+    "registration": "RI 1691-O",
+    "model": "MAN Lion's City 12C",
+    "type": "Solo autobus",
+    "photo": false,
+    "author": "Volim autobuse"
+  }, {
+    "bus_id": "792",
+    "registration": "RI 1692-O",
+    "model": "MAN Lion's City 12C",
+    "type": "Solo autobus",
+    "photo": false,
+    "author": "Volim autobuse"
+  }, {
+    "bus_id": "793",
+    "registration": "RI 1693-O",
+    "model": "MAN Lion's City 18C",
+    "type": "Zglobni autobus",
+    "photo": false,
+    "author": "rzri05"
+  }, {
+    "bus_id": "794",
+    "registration": "RI 1694-O",
+    "model": "MAN Lion's City 18C",
+    "type": "Zglobni autobus",
+    "photo": false,
+    "author": "MAN799"
+  }, {
+    "bus_id": "795",
+    "registration": "RI 1695-O",
+    "model": "MAN Lion's City 18C",
+    "type": "Zglobni autobus",
+    "photo": false,
+    "author": "MAN799"
+  }, {
+    "bus_id": "796",
+    "registration": "RI 1696-O",
+    "model": "MAN Lion's City 18C",
+    "type": "Zglobni autobus",
+    "photo": false,
+    "author": "rzri05"
+  }, {
+    "bus_id": "797",
+    "registration": "RI 1697-O",
+    "model": "MAN Lion's City 18C",
+    "type": "Zglobni autobus",
+    "photo": false,
+    "author": "Volim autobuse"
+  }, {
+    "bus_id": "798",
+    "registration": "RI 1698-O",
+    "model": "MAN Lion's City 18C",
+    "type": "Zglobni autobus",
+    "photo": false,
+    "author": "Volim autobuse"
+  }, {
+    "bus_id": "799",
+    "registration": "RI 1699-O",
+    "model": "MAN Lion's City 18C",
+    "type": "Zglobni autobus",
+    "photo": false,
+    "author": "MAN799"
+  }
+]

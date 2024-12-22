@@ -1,0 +1,56 @@
+div.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 4000;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    color: #818181;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+div.paddedSidenav{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+  div.checkbox{
+    padding-left: 1rem;
+  }
+
+  input.grey{
+    background-color: #818181 !important;
+  }
+  
+  .sidenav a {
+    text-decoration: none;
+    color: #818181;
+    display: block;
+    transition: 0.2s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  .checkbox label {
+    padding-bottom: .2rem;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }

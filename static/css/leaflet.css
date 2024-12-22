@@ -1,0 +1,222 @@
+.activeBusIcon{
+  transition-duration:0.1s;
+}
+
+.leaflet-container path{
+  transition: fill .75s;
+}
+
+.leaflet-popup-content-wrapper {
+  color: white !important;
+background: rgba(0, 0, 0, 0.8) !important;
+}
+
+.leaflet-popup-tip {
+background:  rgba(0, 0, 0, 0.8) !important;
+} 
+
+.leaflet-tooltip {
+color: white !important;
+border-style: none !important;
+border: 0px solid transparent !important;
+border-color:transparent !important;
+background-color: none !important;
+border-color: none !important;
+background: none;
+border: none;
+box-shadow: none;
+cursor: none;
+direction: 'center';
+fill: false;
+background: rgba(0, 0, 0, 0.8) !important;
+}
+
+.leaflet-tooltip-top:before, 
+.leaflet-tooltip-bottom:before, 
+.leaflet-tooltip-left:before, 
+.leaflet-tooltip-right:before {
+background: rgba(0, 0, 0, 0.8) !important;
+border: none !important;
+}
+
+.leaflet-control-layers-toggle {
+font-family: 'Rubik', sans-serif;
+transition-duration: 200ms;
+}
+
+.leaflet-control-layers {
+font-family: 'Rubik', sans-serif;
+transition-duration: 200ms;
+color: white !important;
+background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.labelstyle {
+font-family: 'Rubik', sans-serif;
+transition-duration: 200ms;
+border: none;
+border-style: none;
+margin: 0rem;
+padding: .1rem;
+}
+
+.labelstyle-line{
+font-family: 'Rubik', sans-serif;
+transition-duration: 0.1s;
+border: none;
+border-style: none;
+margin: 0rem;
+padding: .1rem;
+}
+
+.translucent {
+background: transparent !important;
+border: none !important;
+box-shadow: none !important;
+position: absolute;
+}
+
+.szIcon-test {
+font-family: 'Rubik', sans-serif;
+color:#05A1E4 !important;
+border-radius:6px;
+background-color: white;
+padding:.1rem;
+position:relative;
+vertical-align: center;
+}
+/*Icons*/
+.icon-active {
+width: 50px;
+height: 50px;
+border-radius: 25px;
+background-color: #FF6D33;
+color: white;
+display: flex !important;
+justify-content: center;
+align-items: center;
+transition-duration: 300ms;
+}
+
+.icon-hidden {
+width: 50px;
+height: 50px;
+border-radius: 25px;
+background-color: #00C8F3;
+color: white;
+display: flex !important;
+justify-content: center;
+align-items: center;
+transition-duration: 300ms;
+}
+
+.icon-inactive {
+width: 50px;
+height: 50px;
+border-radius: 25px;
+background-color: #E2B601;
+color: white;
+display: flex !important;
+justify-content: center;
+align-items: center;
+transition-duration: 300ms;
+/* set to 50% opacity */
+opacity: 0.3;
+}
+
+.icon-selected {
+width: 50px;
+height: 50px;
+border-radius: 25px;
+background-color: #003C66;
+color: white;
+display: flex !important;
+justify-content: center;
+align-items: center;
+transition-duration: 300ms;
+}
+
+.icon-pointer {
+width: 12.5px;
+height: 12.5px;
+position: absolute;
+right: 0;
+bottom: 0;
+transform-origin: top left;
+}
+
+p.icon {
+padding:0;
+margin:0;
+font-family: 'Rubik', sans-serif;
+font-weight: bold;
+}
+
+/*Dark mode*/
+.leaflet-control-zoom a {
+color: white !important;
+background: rgba(0, 0, 0, 0.5) !important;
+transition: all 0.5s ease;
+}
+
+.leaflet-control-zoom a:hover {
+color: white !important;
+background: rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Leaflet Layers Control */
+
+.leaflet-control-layers {
+border-radius: none;
+box-shadow: none;
+}
+
+.leaflet-control-layers-list {
+font-size: 16px;
+line-height: 12px;
+background: none !important;
+color: white;
+}
+
+.leaflet-control-layers-base {
+line-height: 12px;
+margin-top: 5px;
+}
+
+.leaflet-control-layers-overlays {
+margin-top: 5px;
+}
+
+.leaflet-control-layers-expanded {
+width: 100% !important;
+padding: 0px;
+background-color: transparent;
+border: none !important;
+}
+
+#layercontrol {
+display: inline-block;
+width: 100%;
+padding: 10px;
+background-color: transparent;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+
+
+/* Plugins */
+.leaflet-bar-part-single {
+color:white;
+background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-bar-part{
+color:white;
+background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-bar-part span {
+color:white;
+}
+

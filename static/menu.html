@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script>
+  <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>MestniPromet Rijeka</title>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <h1 class="subtitle">MestniPromet Rijeka</h1>
+      </a>
+      <div class="navbar-burger burger" data-target="navbarBasicExample"
+        onclick="document.getElementById('navbarBasicExample').classList.toggle('navbar'); document.getElementById('navbarBasicExample').classList.toggle('navbar-menu')">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" id="operators" href="/operators">
+          Prevozniki
+        </a>
+        <a class="navbar-item" id="routes" href="/routes">
+          Linije
+        </a>
+        <a class="navbar-item" id="vehicles" href="/vehicles">
+          Vozila
+        </a>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary" href="/web/map.html" target="_blank">
+              <i class="bi bi-globe-americas"></i><strong> Karta</strong>
+            </a>
+            <a class="button is-info" id="login" href="/admin">
+              <strong>Prijava</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container" id="mainContainer">
+    <div class="hero">
+      <div class="hero-body">
+        <h1 class="title">Dobrodošli u MestniPromet Rijeka!</h1>
+        <h2 class="subtitle">Ova aplikacija omogućava prikaz prometa uživo za područje Rijeke.</h2>
+      </div>
+    </div>
+    <hr>
+    <div class="columns">
+      <div class="column">
+        <div class="card-content">
+          <p class="title">Pregled realizacije polazaka</p>
+          <div class="content">
+            <canvas id="realisationChart"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card-content">
+          <p class="title">Pregled vozila</p>
+          <div class="content">
+            <table class="table is-fullwidth">
+              <thead>
+                <tr>
+                  <th>Vozilo</th>
+                  <th>Linija</th>
+                  <th>Polazak</th>
+                </tr>
+              </thead>
+              <tbody id="vehiclesTable">
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+  </div>
+
+</body>
+<script>
+  async function getRealisationData() {
+    const response = await fetch('/api/report/realisation');
+    const apiData = await response.json();
+    // Extract labels and data from the API response
+    const realisation = {
+      'realized': 'Realizirano',
+      'not_realized': 'Nije realizirano',
+      'in_future': 'U budućnosti',
+    }
+    const labels = apiData.data.map(item => realisation[item.status]);
+    const counts = apiData.data.map(item => item.count);
+
+    // Create the chart
+    const ctx = document.getElementById('realisationChart').getContext('2d');
+    const realisationChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Realizacija linija',
+          data: counts,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+          ],
+          borderWidth: 1
+        }]
+      }
+    });
+  }
+  async function getVehiclesData() {
+    const response = await fetch('/api/report/vehicle');
+    const apiData = await response.json();
+    const vehiclesTable = document.getElementById('vehiclesTable');
+
+    const pad = (num) => num.toString().padStart(2, '0');
+
+    const departure_formatter = (sec) => {
+      return `${pad(Math.floor(sec / 3600))}:${pad(Math.floor(sec / 60) % 60)}:${pad(sec % 60)}`;
+    }
+
+    apiData.data.forEach(vehicle => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${vehicle.internal_id} ${vehicle.plate ? `(${vehicle.plate})` : ''}</td>
+        <td><b>${vehicle.line_name}</b> ${vehicle.route_name}</td>
+        <td>${departure_formatter(vehicle.first_stop_time)}</td>
+      `;
+      vehiclesTable.appendChild(row);
+    });
+  }
+
+
+  getRealisationData();
+  getVehiclesData();
+</script>
+
+</html>

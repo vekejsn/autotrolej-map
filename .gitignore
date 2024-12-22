@@ -1,0 +1,7 @@
+node_modules
+*sqlite*
+gtfs/*
+*.zip
+*db3*
+.vscode
+*.csv
