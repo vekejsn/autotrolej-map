@@ -292,7 +292,7 @@ const fetchRealtimeData = async () => {
             const distanceToStop = calculateDistance(vehicleLat, vehicleLon, stop.lat, stop.lon);
             const isFirstStop = i === 0;
             const isLastStop = i === trip.length - 1;
-            const radius = isFirstStop || isLastStop ? startEndTolerance : tolerance;
+            const radius = isFirstStop ? startEndTolerance : tolerance;
 
             if (distanceToStop <= radius && distanceToStop < minDistancePrev) {
                 minDistancePrev = distanceToStop;
