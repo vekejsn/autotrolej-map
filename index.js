@@ -235,9 +235,76 @@ const loadSchedule = async () => {
     }
 }
 
+<<<<<<< HEAD
 const calculateDistance = (lat1, lon1, lat2, lon2) => {
     const R = 6371e3; // Earth radius in meters
     const toRad = (x) => (x * Math.PI) / 180;
+=======
+const fetchRealtimeData = async () => {
+    const calculateDistance = (lat1, lon1, lat2, lon2) => {
+        const R = 6371e3; // Earth radius in meters
+        const toRad = (x) => (x * Math.PI) / 180;
+
+        const φ1 = toRad(lat1);
+        const φ2 = toRad(lat2);
+        const Δφ = toRad(lat2 - lat1);
+        const Δλ = toRad(lon2 - lon1);
+
+        const a =
+            Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+            Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        return R * c; // Distance in meters
+    };
+
+    const calculateBearing = (lat1, lon1, lat2, lon2) => {
+        const toRad = (x) => (x * Math.PI) / 180;
+        const toDeg = (x) => (x * 180) / Math.PI;
+
+        const φ1 = toRad(lat1);
+        const φ2 = toRad(lat2);
+        const λ1 = toRad(lon1);
+        const λ2 = toRad(lon2);
+
+        const y = Math.sin(λ2 - λ1) * Math.cos(φ2);
+        const x =
+            Math.cos(φ1) * Math.sin(φ2) -
+            Math.sin(φ1) * Math.cos(φ2) * Math.cos(λ2 - λ1);
+        return (toDeg(Math.atan2(y, x)) + 360) % 360;
+    };
+
+    const kalmanFilter = (prevValue, measurement, errorCovariance, processVariance, measurementVariance) => {
+        const kalmanGain = errorCovariance / (errorCovariance + measurementVariance);
+        const currentValue = prevValue + kalmanGain * (measurement - prevValue);
+        const updatedErrorCovariance = (1 - kalmanGain) * errorCovariance + processVariance;
+        return { currentValue, updatedErrorCovariance };
+    };
+
+    const adjustVariances = (predictionError, processVariance, measurementVariance, adjustmentFactor) => {
+        const newProcessVariance = processVariance * (1 + adjustmentFactor * Math.abs(predictionError));
+        const newMeasurementVariance = measurementVariance * (1 + adjustmentFactor * Math.abs(predictionError));
+        return { newProcessVariance, newMeasurementVariance };
+    };
+
+    const findClosestStops = (trip, vehicleLat, vehicleLon, tolerance = 100, startEndTolerance = 300) => {
+        let closestPrevStop = null;
+        let closestNextStop = null;
+        let minDistancePrev = Infinity;
+        let minDistanceNext = Infinity;
+
+        for (let i = 0; i < trip.length; i++) {
+            const stop = trip[i];
+            const distanceToStop = calculateDistance(vehicleLat, vehicleLon, stop.lat, stop.lon);
+            const isFirstStop = i === 0;
+            const isLastStop = i === trip.length - 1;
+            const radius = isFirstStop ? startEndTolerance : tolerance;
+
+            if (distanceToStop <= radius && distanceToStop < minDistancePrev) {
+                minDistancePrev = distanceToStop;
+                closestPrevStop = stop;
+            }
+>>>>>>> 6700d28406d10d9290bd2adb45edade84558e0f0
 
     const φ1 = toRad(lat1);
     const φ2 = toRad(lat2);
