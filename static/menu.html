@@ -35,7 +35,7 @@
         <a class="navbar-item" id="routes" href="/routes">
           Linije
         </a>
-        <a class="navbar-item" id="vehicles" href="/vehicles">
+        <a class="navbar-item" id="vehicles" href="/web/vehicles.html">
           Vozila
         </a>
       </div>
@@ -73,7 +73,7 @@
       </div>
       <div class="column">
         <div class="card-content">
-          <p class="title">Pregled vozila</p>
+          <p class="title">Pregled aktivnih vozila</p>
           <div class="content">
             <table class="table is-fullwidth">
               <thead>
@@ -112,7 +112,7 @@
       data: {
         labels: labels,
         datasets: [{
-          label: 'Realizacija linija',
+          label: 'Broj polazaka',
           data: counts,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
@@ -156,8 +156,6 @@
       vehiclesTable.appendChild(row);
     });
   }
-
-
   getRealisationData();
   getVehiclesData();
 </script>

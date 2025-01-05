@@ -3,6 +3,7 @@ import { createRequire } from 'module';
 import fetch from 'node-fetch';
 import GtfsRealtimeBindings from "gtfs-realtime-bindings";
 import Papa from 'papaparse';
+import WebSocket from 'ws';
 
 const require = createRequire(import.meta.url);
 
@@ -234,258 +235,203 @@ const loadSchedule = async () => {
     }
 }
 
-const fetchRealtimeData = async () => {
-    const calculateDistance = (lat1, lon1, lat2, lon2) => {
-        const R = 6371e3; // Earth radius in meters
-        const toRad = (x) => (x * Math.PI) / 180;
+const calculateDistance = (lat1, lon1, lat2, lon2) => {
+    const R = 6371e3; // Earth radius in meters
+    const toRad = (x) => (x * Math.PI) / 180;
 
-        const φ1 = toRad(lat1);
-        const φ2 = toRad(lat2);
-        const Δφ = toRad(lat2 - lat1);
-        const Δλ = toRad(lon2 - lon1);
+    const φ1 = toRad(lat1);
+    const φ2 = toRad(lat2);
+    const Δφ = toRad(lat2 - lat1);
+    const Δλ = toRad(lon2 - lon1);
 
-        const a =
-            Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
-            Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const a =
+        Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+        Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-        return R * c; // Distance in meters
-    };
-
-    const calculateBearing = (lat1, lon1, lat2, lon2) => {
-        const toRad = (x) => (x * Math.PI) / 180;
-        const toDeg = (x) => (x * 180) / Math.PI;
-
-        const φ1 = toRad(lat1);
-        const φ2 = toRad(lat2);
-        const λ1 = toRad(lon1);
-        const λ2 = toRad(lon2);
-
-        const y = Math.sin(λ2 - λ1) * Math.cos(φ2);
-        const x =
-            Math.cos(φ1) * Math.sin(φ2) -
-            Math.sin(φ1) * Math.cos(φ2) * Math.cos(λ2 - λ1);
-        return (toDeg(Math.atan2(y, x)) + 360) % 360;
-    };
-
-    const kalmanFilter = (prevValue, measurement, errorCovariance, processVariance, measurementVariance) => {
-        const kalmanGain = errorCovariance / (errorCovariance + measurementVariance);
-        const currentValue = prevValue + kalmanGain * (measurement - prevValue);
-        const updatedErrorCovariance = (1 - kalmanGain) * errorCovariance + processVariance;
-        return { currentValue, updatedErrorCovariance };
-    };
-
-    const adjustVariances = (predictionError, processVariance, measurementVariance, adjustmentFactor) => {
-        const newProcessVariance = processVariance * (1 + adjustmentFactor * Math.abs(predictionError));
-        const newMeasurementVariance = measurementVariance * (1 + adjustmentFactor * Math.abs(predictionError));
-        return { newProcessVariance, newMeasurementVariance };
-    };
-
-    const findClosestStops = (trip, vehicleLat, vehicleLon, tolerance = 100, startEndTolerance = 300) => {
-        let closestPrevStop = null;
-        let closestNextStop = null;
-        let minDistancePrev = Infinity;
-        let minDistanceNext = Infinity;
-
-        for (let i = 0; i < trip.length; i++) {
-            const stop = trip[i];
-            const distanceToStop = calculateDistance(vehicleLat, vehicleLon, stop.lat, stop.lon);
-            const isFirstStop = i === 0;
-            const isLastStop = i === trip.length - 1;
-            const radius = isFirstStop || isLastStop ? startEndTolerance : tolerance;
-
-            if (distanceToStop <= radius && distanceToStop < minDistancePrev) {
-                minDistancePrev = distanceToStop;
-                closestPrevStop = stop;
-            }
-
-            if (distanceToStop <= radius && distanceToStop < minDistanceNext) {
-                minDistanceNext = distanceToStop;
-                closestNextStop = stop;
-            }
-        }
-
-        return { closestPrevStop, closestNextStop };
-    };
-
-    const vehiclesApi = await fetch(API_URL.API_BASE + 'v1/voznired/autobusi').then(res => res.json()).then(res => res.res);
-    const vehicles = sqlite3.prepare('SELECT * FROM vehicle').all();
-    const vehiclesMap = {};
-    for (let vehicle of vehicles) {
-        vehiclesMap[vehicle.id] = vehicle;
-    }
-
-    const vehicleLocations = sqlite3.prepare('SELECT * FROM VehiclePosition').all();
-    const vehicleLocationsMap = {};
-    for (let vehicleLocation of vehicleLocations) {
-        vehicleLocationsMap[vehicleLocation.vehicle_id] = vehicleLocation;
-    }
-
-    let vehicleQuery = 'INSERT INTO vehicle (id, internal_id) VALUES ';
-    let vehicleValues = [];
-    let vehicleLocationQuery = 'INSERT INTO VehiclePosition (vehicle_id, trip_id, lat, lon, bearing, timestamp, delay, next_stop_id) VALUES ';
-    let vehicleLocationValues = [];
-    let realisationsQuery = 'INSERT INTO Realisation (trip_id, date, vehicle_id) VALUES ';
-    let realisationsValues = [];
-
-    const trips = sqlite3.prepare('SELECT id FROM trip').all();
-    const tripsMap = {};
-    for (let trip of trips) {
-        tripsMap[trip.id] = trip.id;
-    }
-
-    const stopTimesToTrip = sqlite3.prepare('SELECT trip_id, stop_id, stop_time, lat, lon FROM StopTime st JOIN Stop s ON st.stop_id = s.id ORDER BY stop_sequence').all();
-    const stopTimesToTripMap = {};
-    for (let stopTime of stopTimesToTrip) {
-        if (!stopTimesToTripMap[stopTime.trip_id]) {
-            stopTimesToTripMap[stopTime.trip_id] = [];
-        }
-        stopTimesToTripMap[stopTime.trip_id].push(stopTime);
-    }
-
-    let csv = ('vehicle_id;closestPrevStop;closestNextStop;isAtFirstStop;isAtLastStop;distanceToPrevStop;totalStopDistance;progressBetweenStops;interpolatedTime;now;delayTime;filteredDelayTime\n');
-
-    for (let vehicle of vehiclesApi) {
-        vehicle.gbr = vehicle.gbr.toString();
-        vehicle.voznjaBusId = vehicle.voznjaBusId.toString();
-
-        if (!vehiclesMap[vehicle.gbr]) {
-            vehicleQuery += '(?, ?),';
-            vehicleValues.push(vehicle.gbr, vehicle.gbr);
-        }
-
-        let bearing = 0;
-        if (vehicleLocationsMap[vehicle.gbr]) {
-            const prevLocation = vehicleLocationsMap[vehicle.gbr];
-            const distance = calculateDistance(prevLocation.lat, prevLocation.lon, vehicle.lat, vehicle.lon);
-            if (distance > 10) {
-                bearing = calculateBearing(prevLocation.lat, prevLocation.lon, vehicle.lat, vehicle.lon);
-            } else {
-                bearing = prevLocation.bearing;
-            }
-        }
-
-        if (
-            vehicleLocationsMap[vehicle.gbr] &&
-            vehicleLocationsMap[vehicle.gbr].lat === vehicle.lat &&
-            vehicleLocationsMap[vehicle.gbr].lon === vehicle.lon
-        ) {
-            continue;
-        }
-
-        const trip = stopTimesToTripMap[tripsMap[vehicle.voznjaBusId]] || [];
-        const { closestPrevStop, closestNextStop } = findClosestStops(trip, vehicle.lat, vehicle.lon);
-
-        if (!closestPrevStop || !closestNextStop) continue;
-
-        const isAtFirstStop = closestPrevStop === trip[0];
-        const isAtLastStop = closestNextStop === trip[trip.length - 1];
-
-        const totalStopDistance = calculateDistance(closestPrevStop.lat, closestPrevStop.lon, closestNextStop.lat, closestNextStop.lon);
-        const distanceToPrevStop = calculateDistance(vehicle.lat, vehicle.lon, closestPrevStop.lat, closestPrevStop.lon);
-        const progressBetweenStops = Math.min(distanceToPrevStop / totalStopDistance, 1); // Avoid overshooting
-
-        const midnight = luxon.DateTime.local().setZone('Europe/Zagreb').startOf('day').toSeconds();
-        const now = luxon.DateTime.local().setZone('Europe/Zagreb').toSeconds();
-
-        const interpolatedTime = closestPrevStop.stop_time + (closestNextStop.stop_time - closestPrevStop.stop_time) * progressBetweenStops;
-        let delayTime;
-
-        if (isAtFirstStop || isAtLastStop) {
-            // If at the first or last stop, use objective delay
-            delayTime = now - (midnight + closestPrevStop.stop_time);
-            // If the delay time is negative and we are at the first stop, use the interpolated time
-            if (delayTime < 0 && isAtFirstStop) {
-                delayTime = 0;
-            }
-        } else {
-            // Otherwise, calculate delay normally
-            delayTime = now - (midnight + interpolatedTime);
-        }
-
-        // Apply Kalman filter only if not at first or last stop
-        let filteredDelayTime = delayTime;
-        if (!isAtFirstStop && !isAtLastStop) {
-            let prevDelayTime = vehicleLocationsMap[vehicle.gbr]?.delay || 0;
-            let prevErrorCovariance = vehicleLocationsMap[vehicle.gbr]?.errorCovariance || 1;
-            let processVariance = 1; // Initial process variance
-            let measurementVariance = 2; // Initial measurement variance
-
-            // Apply Kalman filter
-            const kalmanResult = kalmanFilter(prevDelayTime, delayTime, prevErrorCovariance, processVariance, measurementVariance);
-            filteredDelayTime = kalmanResult.currentValue;
-
-            // Update covariance in memory for the next iteration
-            vehicleLocationsMap[vehicle.gbr] = {
-                ...vehicleLocationsMap[vehicle.gbr],
-                errorCovariance: kalmanResult.updatedErrorCovariance,
-            };
-
-            // Adjust variances dynamically
-            const predictionError = delayTime - filteredDelayTime;
-            const variances = adjustVariances(predictionError, processVariance, measurementVariance, 0.1); // Adjustment factor
-            processVariance = variances.newProcessVariance;
-            measurementVariance = variances.newMeasurementVariance;
-        }
-
-        csv += (`${vehicle.gbr};${JSON.stringify(closestPrevStop)};${JSON.stringify(closestNextStop)};${isAtFirstStop};${isAtLastStop};${distanceToPrevStop};${totalStopDistance};${progressBetweenStops};${interpolatedTime};${now};${delayTime};${filteredDelayTime}\n`);
-
-        vehicleLocationQuery += '(?, ?, ?, ?, ?, ?, ?, ?),';
-        vehicleLocationValues.push(
-            vehicle.gbr,
-            tripsMap[vehicle.voznjaBusId],
-            vehicle.lat,
-            vehicle.lon,
-            bearing,
-            parseInt(luxon.DateTime.local().setZone('Europe/Zagreb').toSeconds()),
-            filteredDelayTime,
-            closestNextStop.stop_id
-        );
-
-        if (tripsMap[vehicle.voznjaBusId]) {
-            realisationsQuery += '(?, ?, ?),';
-            realisationsValues.push(
-                tripsMap[vehicle.voznjaBusId],
-                luxon.DateTime.local().setZone('Europe/Zagreb').toISODate(),
-                vehicle.gbr
-            );
-        }
-    }
-
-    // Write CSV to file
-    fs.writeFileSync('kalman.csv', csv);
-
-    vehicleQuery = vehicleQuery.slice(0, -1) + ' ON CONFLICT(id) DO UPDATE SET internal_id=excluded.internal_id';
-    vehicleLocationQuery =
-        vehicleLocationQuery.slice(0, -1) +
-        ' ON CONFLICT(vehicle_id) DO UPDATE SET trip_id=excluded.trip_id, lat=excluded.lat, lon=excluded.lon, bearing=excluded.bearing, timestamp=excluded.timestamp, delay=excluded.delay, next_stop_id=excluded.next_stop_id';
-    realisationsQuery =
-        realisationsQuery.slice(0, -1) +
-        ' ON CONFLICT(trip_id, date) DO UPDATE SET vehicle_id=excluded.vehicle_id';
-
-    if (vehicleValues.length > 0) {
-        await sqlite3.prepare(vehicleQuery).run(vehicleValues);
-    }
-    await sqlite3.prepare(vehicleLocationQuery).run(vehicleLocationValues);
-    await sqlite3.prepare(realisationsQuery).run(realisationsValues);
+    return R * c; // Distance in meters
 };
 
+const calculateBearing = (lat1, lon1, lat2, lon2) => {
+    const toRad = (x) => (x * Math.PI) / 180;
+    const toDeg = (x) => (x * 180) / Math.PI;
 
+    const φ1 = toRad(lat1);
+    const φ2 = toRad(lat2);
+    const λ1 = toRad(lon1);
+    const λ2 = toRad(lon2);
 
+    const y = Math.sin(λ2 - λ1) * Math.cos(φ2);
+    const x =
+        Math.cos(φ1) * Math.sin(φ2) -
+        Math.sin(φ1) * Math.cos(φ2) * Math.cos(λ2 - λ1);
+    return (toDeg(Math.atan2(y, x)) + 360) % 360;
+};
 
+const findClosestStops = (trip, vehicleLat, vehicleLon, tolerance = 100, startEndTolerance = 300) => {
+    let closestPrevStop = null;
+    let closestNextStop = null;
+    let minDistancePrev = Infinity;
+    let minDistanceNext = Infinity;
 
-const mainLoop = async () => {
-    while (true) {
-        try {
-            // Get vehicles
-            await fetchRealtimeData();
-            console.log('Data fetched at ' + luxon.DateTime.local().setZone('Europe/Zagreb').toISO());
-        } catch (e) {
-            console.error(e);
+    for (let i = 0; i < trip.length; i++) {
+        const stop = trip[i];
+        const distanceToStop = calculateDistance(vehicleLat, vehicleLon, stop.lat, stop.lon);
+        const isFirstStop = i === 0;
+        const isLastStop = i === trip.length - 1;
+        const radius = isFirstStop || isLastStop ? startEndTolerance : tolerance;
+
+        if (distanceToStop <= radius && distanceToStop < minDistancePrev) {
+            minDistancePrev = distanceToStop;
+            closestPrevStop = stop;
         }
-        await sleep(5000);
+
+        if (distanceToStop <= radius && distanceToStop < minDistanceNext) {
+            minDistanceNext = distanceToStop;
+            closestNextStop = stop;
+        }
     }
-}
+
+    return { closestPrevStop, closestNextStop };
+};
+
+const kalmanFilter = (prevValue, measurement, errorCovariance, processVariance, measurementVariance) => {
+    const kalmanGain = errorCovariance / (errorCovariance + measurementVariance);
+    const currentValue = prevValue + kalmanGain * (measurement - prevValue);
+    const updatedErrorCovariance = (1 - kalmanGain) * errorCovariance + processVariance;
+    return { currentValue, updatedErrorCovariance };
+};
+
+const adjustVariances = (predictionError, processVariance, measurementVariance, adjustmentFactor) => {
+    const newProcessVariance = processVariance * (1 + adjustmentFactor * Math.abs(predictionError));
+    const newMeasurementVariance = measurementVariance * (1 + adjustmentFactor * Math.abs(predictionError));
+    return { newProcessVariance, newMeasurementVariance };
+};
+
+let VEHICLE_LOCATION_MAP = {};
+
+const processWebSocketData = (data) => {
+    const db = sqlite3;
+
+    const vehicleQuery = 'INSERT INTO Vehicle (id, internal_id) VALUES (?, ?) ON CONFLICT(id) DO UPDATE SET plate=excluded.internal_id';
+
+    const vehicleLocationQuery =
+        'INSERT INTO VehiclePosition (vehicle_id, trip_id, lat, lon, bearing, timestamp, delay) VALUES (?, ?, ?, ?, ?, ?, ?) ' +
+        'ON CONFLICT(vehicle_id) DO UPDATE SET trip_id=excluded.trip_id, lat=excluded.lat, lon=excluded.lon, bearing=excluded.bearing, timestamp=excluded.timestamp, delay=excluded.delay';
+
+    const realisationsQuery =
+        'INSERT INTO Realisation (trip_id, date, vehicle_id) VALUES (?, ?, ?) ' +
+        'ON CONFLICT(trip_id, date) DO UPDATE SET vehicle_id=excluded.vehicle_id';
+
+    const now = luxon.DateTime.local().setZone('Europe/Zagreb').toSeconds();
+    const midnight = luxon.DateTime.local().setZone('Europe/Zagreb').startOf('day').toSeconds();
+
+    const [gbr, voznjaBusId, voznjaId, lat, lon] = data.split(';');
+    const vehicleId = gbr.toString();
+    const tripId = voznjaBusId.toString();
+    const latitude = parseFloat(lat);
+    const longitude = parseFloat(lon);
+
+    // Get previous vehicle location if available
+    const prevLocation = db.prepare('SELECT * FROM VehiclePosition WHERE vehicle_id = ?').get(vehicleId);
+
+    // If the location hasn't changed, don't update the database
+    if (prevLocation && prevLocation.lat === latitude && prevLocation.lon === longitude) return;
+
+    let bearing = 0;
+    if (prevLocation) {
+        const distance = calculateDistance(prevLocation.lat, prevLocation.lon, latitude, longitude);
+        if (distance > 10) {
+            bearing = calculateBearing(prevLocation.lat, prevLocation.lon, latitude, longitude);
+        } else {
+            bearing = prevLocation.bearing;
+        }
+    }
+
+    const tripStops = db.prepare('SELECT stop_id, stop_time, lat, lon FROM StopTime st JOIN Stop s ON st.stop_id = s.id WHERE st.trip_id = ? ORDER BY stop_sequence').all(tripId);
+    if (!tripStops || tripStops.length === 0) return;
+
+    const { closestPrevStop, closestNextStop } = findClosestStops(tripStops, latitude, longitude);
+
+    if (!closestPrevStop || !closestNextStop) return;
+
+    const isAtFirstStop = closestPrevStop.stop_id === tripStops[0].stop_id;
+    const isAtLastStop = closestNextStop.stop_id === tripStops[tripStops.length - 1].stop_id;
+
+
+    const totalStopDistance = calculateDistance(closestPrevStop.lat, closestPrevStop.lon, closestNextStop.lat, closestNextStop.lon);
+    const distanceToPrevStop = calculateDistance(latitude, longitude, closestPrevStop.lat, closestPrevStop.lon);
+    const progressBetweenStops = Math.min(distanceToPrevStop / totalStopDistance, 1); // Avoid overshooting
+
+    const interpolatedTime = closestPrevStop.stop_time + (closestNextStop.stop_time - closestPrevStop.stop_time) * progressBetweenStops;
+    let delay;
+    if (isAtFirstStop || isAtLastStop) {
+        delay = now - (midnight + closestPrevStop.stop_time);
+        if (delay < 0 && isAtFirstStop) {
+            delay = 0;
+        }
+    } else {
+        // Otherwise, calculate delay normally
+        delay = now - (midnight + interpolatedTime);
+    }
+    // Apply Kalman filter only if not at first or last stop
+    if (!isAtFirstStop && !isAtLastStop) {
+        let prevDelayTime = prevLocation?.delay || 0;
+        let prevErrorCovariance = vehicleId in VEHICLE_LOCATION_MAP ? VEHICLE_LOCATION_MAP[vehicleId].errorCovariance : 1;
+        let processVariance = 1; // Initial process variance
+        let measurementVariance = 2; // Initial measurement variance
+
+        // Apply Kalman filter
+        const kalmanResult = kalmanFilter(prevDelayTime, delay, prevErrorCovariance, processVariance, measurementVariance);
+        let filteredDelayTime = kalmanResult.currentValue;
+
+        // Update covariance in memory for the next iteration
+        VEHICLE_LOCATION_MAP[vehicleId] = {
+            errorCovariance: kalmanResult.updatedErrorCovariance,
+        };
+
+        delay = filteredDelayTime;
+    }
+
+
+    // Update Vehicle table
+    db.prepare(vehicleQuery).run(vehicleId, vehicleId);
+
+    // Update VehiclePosition table
+    db.prepare(vehicleLocationQuery).run(vehicleId, tripId, latitude, longitude, bearing, now, delay);
+
+    // Update Realisation table
+    const currentDate = luxon.DateTime.local().setZone('Europe/Zagreb').toISODate();
+    db.prepare(realisationsQuery).run(tripId, currentDate, vehicleId);
+};
+
+const setupWebSocket = () => {
+    const ws = new WebSocket('wss://api.autotrolej.hr/api/Hub/location');
+
+    ws.on('open', () => {
+        console.log('WebSocket connection established.');
+    });
+
+    ws.on('message', (message) => {
+        const data = message.toString();
+        try {
+            processWebSocketData(data);
+        } catch (e) {
+            console.error('Error processing WebSocket data:', e);
+        }
+    });
+
+    ws.on('close', () => {
+        console.log('WebSocket connection closed. Reconnecting in 5 seconds...');
+        setTimeout(setupWebSocket, 5000);
+    });
+
+    ws.on('error', (error) => {
+        console.error('WebSocket error:', error);
+        ws.close();
+    });
+};
+
 
 app.get('/api/stops', cache('1 hour'), (req, res) => {
     let stopDetails = sqlite3.prepare(`
@@ -778,6 +724,6 @@ app.listen(PORT, async () => {
         console.error(e);
     }
     await loadSchedule();
-    mainLoop();
+    setupWebSocket();
     console.log(`Server running on port ${PORT}`);
 });
