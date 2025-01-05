@@ -279,7 +279,7 @@ const findClosestStops = (trip, vehicleLat, vehicleLon, tolerance = 100, startEn
         const distanceToStop = calculateDistance(vehicleLat, vehicleLon, stop.lat, stop.lon);
         const isFirstStop = i === 0;
         const isLastStop = i === trip.length - 1;
-        const radius = isFirstStop || isLastStop ? startEndTolerance : tolerance;
+        const radius = isFirstStop ? startEndTolerance : tolerance;
 
         if (distanceToStop <= radius && distanceToStop < minDistancePrev) {
             minDistancePrev = distanceToStop;
@@ -377,9 +377,9 @@ const processWebSocketData = (data) => {
     // Apply Kalman filter only if not at first or last stop
     if (!isAtFirstStop && !isAtLastStop) {
         let prevDelayTime = prevLocation?.delay || 0;
-        let prevErrorCovariance = vehicleId in VEHICLE_LOCATION_MAP ? VEHICLE_LOCATION_MAP[vehicleId].errorCovariance : 1;
-        let processVariance = 1; // Initial process variance
-        let measurementVariance = 2; // Initial measurement variance
+        let prevErrorCovariance = vehicleId in VEHICLE_LOCATION_MAP ? VEHICLE_LOCATION_MAP[vehicleId]?.errorCovariance : 1;
+        let processVariance = vehicleId in VEHICLE_LOCATION_MAP ? VEHICLE_LOCATION_MAP[vehicleId]?.processVariance : 1;
+        let measurementVariance = vehicleId in VEHICLE_LOCATION_MAP ? VEHICLE_LOCATION_MAP[vehicleId]?.measurementVariance : 2;
 
         // Apply Kalman filter
         const kalmanResult = kalmanFilter(prevDelayTime, delay, prevErrorCovariance, processVariance, measurementVariance);
@@ -388,6 +388,15 @@ const processWebSocketData = (data) => {
         // Update covariance in memory for the next iteration
         VEHICLE_LOCATION_MAP[vehicleId] = {
             errorCovariance: kalmanResult.updatedErrorCovariance,
+        };
+
+        // Adjust variances based on prediction error
+        const predictionError = delay - prevDelayTime;
+        const { newProcessVariance, newMeasurementVariance } = adjustVariances(predictionError, processVariance, measurementVariance, 0.1);
+        VEHICLE_LOCATION_MAP[vehicleId] = {
+            ...VEHICLE_LOCATION_MAP[vehicleId],
+            processVariance: newProcessVariance,
+            measurementVariance: newMeasurementVariance,
         };
 
         delay = filteredDelayTime;
